@@ -1,0 +1,83 @@
+	<!-- 头部 -->
+	<!-- 导航条 -->
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">{$GLOBALS['S']['comtitle']}</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+{loop table="classtype" limit="9"}
+<li{if($type['tid']==$v['tid'])} class="active"{/if}><a href="{$v['url']}">{$v['classname']}</a></li>
+{/loop}
+
+ </ul>
+ 
+
+ 
+        <form class="navbar-form navbar-right sleft" action="{$GLOBALS['WWW']}index.php" method="get">
+        <input name="a" type="hidden" value="search" />
+        <select name="c" style="display:none">
+        <option value="article" selected="selected">域名</option>
+            <div class="form-group search-form">
+              <span><input type="text" class="form-control search-input" name="word" value="" placeholder="请输入关键字母或数字"></span>
+              <span>
+              <input class="sch-btn btn btn-success" type="submit" value="搜索"/>
+              </span>
+            </div>
+
+        </form>
+    </div>
+  </div>
+</div>
+
+	<!-- /头部 -->
+    
+	<!-- 主体 -->
+	
+    <header class="jumbotron subhead" id="overview">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                <h1>好域名，是一道亮丽的风景！</h1>
+                <p class="">域名是一种无形资产，好域名比CEO更重要</p>
+                <p class="">精明的您也许比我更能意识到一个好域名的实际价值!</p>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">联系我们</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>邮箱:</td>
+                                    <td><a href="mailto:{$GLOBALS['S']['comemail']}">{$GLOBALS['S']['comemail']}</a></td>
+                                </tr>
+                                <tr>
+                                    <td>客服QQ:</td>
+                                    <td><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin={fun labelcus(2,'body')}&amp;site=qq&amp;menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:{fun labelcus(2,'body')}:16 &amp;r=0.9744158156681806" alt="{fun labelcus(2,'body')}" title="{fun labelcus(2,'body')}"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>电话:</td>
+                                    <td>{$GLOBALS['S']['comphone']}</td>
+                                </tr>
+                            </table>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div id="main-container" class="container">
+    <div class="row">
+        
+<!-- 左侧 nav -->

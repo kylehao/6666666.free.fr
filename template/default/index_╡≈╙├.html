@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<TITLE>{$GLOBALS['S']['title']}</TITLE>
+
+<link href="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}style/index.css" rel="stylesheet" type="text/css" />
+<link href="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}style/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+{include="head.html"}
+<?php $banner=1; ?>
+<!-- Banner 调用 -->
+<div id="top_banner">
+<ul class="slider">
+{loop table="ads" taid="1" limit="5"}
+<li><a href="{$v['gourl']}"><img src="{$v['adfile']}"></a></li>{/loop}
+	</ul>
+	<ul class="num">
+    {loop table="ads" taid="1" limit="5"}
+			<li class=""><?php echo $banner++ ?></li>
+            {/loop}
+		  </ul>
+	</div> 
+
+
+<!-- 自定义新闻调用 -->
+{loop table="channel" molds="news" tid="7" limit="7"}
+<a href="{$v['url']}" target="_blank" title="{$v['title']}">{fun newstr($v['title'],17)}</a>{fun date('Y-m-d',$v['addtime'])}
+{/loop}
+
+<!--自定义链接
+<a href="{$GLOBALS['www']}index.php?c=channel&a=type&tid=8"><img src="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}images/more.jpg" width="23" height="5" border="0" /></a>
+-->
+ 
+<!-- 产品调用 -->
+{loop table="product" tid="2" limit="10"}
+<a href="{$v['url']}" title="{$v['title']}"><img src="{$GLOBALS['S']['jwcdnapi']}{$v['litpic']}" width="172" height="126" border="0" /></a>
+<a href="{$v['url']}" title="{$v['title']}">{fun newstr($v['title'],30)}</a>
+{/loop} 
+
+<!-- 文章调用 -->
+
+{loop table="article" tid="10" limit="6"}
+<a target="_blank" href="{$v['url']}" title="{$v['title']}">
+<img src="{$GLOBALS['S']['jwcdnapi']}{$v['litpic']}">
+{fun newstr($v['title'],52)}</a>
+{/loop}
+
+
+
+
+{include="bottom.html"}
+</body>
+</html>

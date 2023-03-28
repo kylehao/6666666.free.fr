@@ -1,0 +1,1 @@
+<?php die();?>1447434556a:1:{s:5:"datas";s:171:"jwcom_verify|s:32:"954461aebef2d380a843b19c81d155f7";auser|a:5:{s:5:"auser";s:5:"admin";s:4:"auid";s:1:"1";s:5:"level";s:1:"1";s:3:"gid";s:1:"1";s:10:"pclasstype";s:0:"";}";}

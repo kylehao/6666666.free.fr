@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<TITLE>{$GLOBALS['S']['title']}</TITLE>
+<META NAME="robots" CONTENT="all">
+<META name="keywords" content="{$GLOBALS['S']['keywords']}">
+<META name="description" content="{$GLOBALS['S']['description']}" >
+
+<link href="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}style/bootstrap.css" rel="stylesheet">
+<link href="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}style/docs.css" rel="stylesheet">
+<link href="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}style/one.css" rel="stylesheet">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}js/html5shiv.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}js/jquery-1.10.2.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script type="text/javascript" src="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="{$GLOBALS['S']['jwcdnapi']}{$GLOBALS['skin']}js/bootstrap.min.js"></script>
+<!--<![endif]-->
+
+</head>
+
+<body>
+{include="head.html"}
+
+    <div class="col-xs-12">
+        <!-- Contents
+        ==================================================
+        <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">推荐域名 <i>为您推荐本店极品域名...</i></h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>域名</th>
+                                <th>含义</th>
+                                <th>价格</th>
+
+                            </tr>
+                        </thead>
+                        {loop table="article" trait="1" limit="999"} 
+                        <tr>
+                                    <td><a><b>{$v['title']}</b></a></td>
+                                    <td>{$v['description']}</td>
+                                    <td>{if($v['price']=='')}议价{else}￥{$v['price']}{/if}</td>
+
+                                </tr>
+{/loop}
+</table>
+                </div>
+            </div>    		
+       
+   -->  
+   
+{loop table="classtype" mshow="1" limit="9" as="v"}
+
+
+        <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">{$v['title']}<i><a href="{$v['url']}">更多 »»</a></i></h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>域名</th>
+                                <th>含义</th>
+                                <th>价格</th>
+
+                            </tr>
+                        </thead>
+                        {loop table="article" tid="$v["tid"]" limit="30"} 
+                        <tr>
+                                    <td><a href="{$v['url']}" target="_blank"><b>{$v['title']}</b></a></td>
+                                    <td>{$v['description']}</td>
+                                    <td>{if($v['price']=='')}议价{else}￥{$v['price']}{/if}</td>
+
+                                </tr>
+{/loop}
+</table>
+                </div>
+            </div>  
+{/loop}
+
+        <div class="panel panel-primary">
+                <div class="panel-heading">
+                {loop table="classtype" tid="10" as="v"}
+                  <h3 class="panel-title">{$v['classname']}<i><a href="{$v['url']}">更多 »»</a></i></h3>{/loop}
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>域名</th>
+                                <th>含义</th>
+                                <th>状态</th>
+
+                            </tr>
+                        </thead>
+                        {loop table="article" molds="domain" tid="10" limit="999"} 
+                        <tr>
+                                    <td><a href="{$v['url']}" target="_blank"><span>{$v['title']}</span></a></td>
+                                    <td><span>{$v['description']}</span></td>
+                                    <td><span class="ys">已售</span></td>
+
+                                </tr>
+{/loop}
+
+</table>
+                </div>
+            </div>    	
+            
+		<div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">友情链接 <i>欢迎交换友情链接...</i></h3>
+                </div>
+                <div class="panel-body linklist">
+					<ul class="clearfix">
+                    {loop table="links"}
+<li class="pull-left"><a href="{$v['gourl']}" target="_blank">{$v['name']}</a></li>
+{/loop}
+					
+					</ul>
+                    
+                </div>
+            </div>
+        
+    </div>
+	
+
+    </div>
+</div>
+
+
+	<!-- /主体 -->
+{include="bottom.html"}
+</body>
+</html>

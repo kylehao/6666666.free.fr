@@ -1,0 +1,14 @@
+User-agent: *
+
+Disallow: /aa/
+Disallow: /c/
+Disallow: /include/
+Disallow: /install/
+Disallow: /include/
+Disallow: /mp3/
+Disallow: /s/
+Disallow: /skin/
+Disallow: /source/
+Disallow: /templates/
+Disallow: /uploads/
+Disallow: /admin.php
